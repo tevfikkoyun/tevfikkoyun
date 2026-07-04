@@ -1,17 +1,94 @@
 # Tevfik Koyun
 
-**Network & Cloud Infrastructure Engineer** — Totowa, NJ  
-Cisco CCNA · AWS SAA-C03 · B.S. Computer Science, UCF
+**Cloud Infrastructure & DevOps Engineer** --- Totowa, NJ
 
-[LinkedIn](https://linkedin.com/in/tevfikkoyun) · [GitHub](https://github.com/tevfikkoyun)
+Cisco CCNA • AWS Certified Solutions Architect -- Associate (SAA-C03) •
+B.S. Computer Science, University of Central Florida
 
----
+**LinkedIn:** https://linkedin.com/in/tevfikkoyun\
+**GitHub:** https://github.com/tevfikkoyun
 
-## DevOps & Cloud Portfolio
+------------------------------------------------------------------------
 
-4+ years of hands-on infrastructure experience (network design, IP cameras, data room buildouts, Active Directory) combined with a deliberate cloud and DevOps skill-building series — from Terraform fundamentals to a full-stack application running on AWS EKS.
+# About Me
 
----
+Cloud Infrastructure and DevOps Engineer with 4+ years of hands-on
+experience designing, deploying, and supporting enterprise IT
+infrastructure.
+
+My professional background includes supporting enterprise IT infrastructure 
+across networking, wireless, Active Directory, Windows Server, IP surveillance, 
+and electronic access control systems. I also participated in large-scale 
+infrastructure refresh projects, including Cisco switch deployments, wireless 
+upgrades, and server room modernization supporting hundreds of users.
+
+To expand my infrastructure expertise into cloud engineering, I have
+built a structured portfolio of real-world projects focused on AWS,
+Terraform, Docker, Kubernetes, and GitHub Actions. Rather than learning
+technologies individually, I intentionally designed each repository to
+build upon the previous one---progressing from infrastructure
+fundamentals to complete production-style cloud platforms running on
+AWS.
+
+I enjoy designing scalable cloud infrastructure, automating deployments
+through Infrastructure as Code, building containerized applications, and
+continuously improving deployment workflows through CI/CD automation.
+
+My long-term goal is to become a Platform / DevOps Engineer focused on
+building reliable, scalable, and automated cloud platforms that improve
+developer productivity and operational efficiency.
+
+------------------------------------------------------------------------
+
+# Professional Highlights
+
+-   ✔ 4+ Years of Enterprise Infrastructure Experience
+-   ✔ Cisco CCNA Certified
+-   ✔ AWS Certified Solutions Architect -- Associate
+-   ✔ Bachelor of Science in Computer Science
+-   ✔ Enterprise Networking (Cisco Switching, VLANs, Wireless
+    Infrastructure)
+-   ✔ Active Directory & Windows Server Administration
+-   ✔ Infrastructure as Code (Terraform)
+-   ✔ Docker & Kubernetes
+-   ✔ GitHub Actions CI/CD
+-   ✔ AWS Cloud (EC2, VPC, IAM, EKS, ECR, RDS, CloudWatch)
+
+------------------------------------------------------------------------
+
+# Current Focus
+
+Currently building production-style cloud projects around:
+
+-   AWS Cloud Infrastructure
+-   Terraform
+-   Docker
+-   Kubernetes
+-   GitHub Actions CI/CD
+-   Platform Engineering
+-   Cloud Automation
+-   Infrastructure as Code
+
+------------------------------------------------------------------------
+
+# Engineering Philosophy
+
+I believe the best way to learn cloud technologies is by building
+complete, end-to-end systems instead of isolated tutorials.
+
+Every repository in this portfolio represents a step in a structured
+learning journey. Together they demonstrate how networking, cloud
+infrastructure, containers, Kubernetes, and automation come together to
+build production-style environments.
+
+------------------------------------------------------------------------
+
+# DevOps & Cloud Portfolio
+
+The repositories below represent a structured learning journey rather
+than isolated tutorials. Each project builds upon the previous one,
+gradually combining networking, cloud infrastructure, containers,
+Kubernetes, and automation into complete production-style deployments.
 
 ```
 ╔══════════════════════════════════════════════════════════════════════════════╗
@@ -127,19 +204,19 @@ The relation between these projects:
                                           Everything combined
                                                      │
                                    ┌─────────────────▼───────────────────┐
-                                   │         fullstack-k8s-aws            │
-                                   │                                      │
+                                   │         fullstack-k8s-aws           │
+                                   │                                     │
                                    │  Terraform → EKS cluster · VPC ·    │
                                    │  ECR · IAM roles · OIDC provider ·  │
-                                   │  EBS CSI Driver                      │
-                                   │                                      │
-                                   │  Kubernetes → Deployments · Services │
-                                   │  ALB Ingress · ConfigMaps · Secrets  │
-                                   │  PVC (EBS) · Probes · HPA            │
-                                   │                                      │
-                                   │  CI/CD → GitHub Actions              │
-                                   │  Docker images → ECR → EKS           │
-                                   │                                      │
+                                   │  EBS CSI Driver                     │
+                                   │                                     │
+                                   │  Kubernetes → Deployments · Services│
+                                   │  ALB Ingress · ConfigMaps · Secrets │
+                                   │  PVC (EBS) · Probes · HPA           │
+                                   │                                     │
+                                   │  CI/CD → GitHub Actions             │
+                                   │  Docker images → ECR → EKS          │
+                                   │                                     │
                                    │  Live on AWS ALB ↗                  │
                                    └──────────────────────────────────────┘
 ```
@@ -183,6 +260,23 @@ The relation between these projects:
 |---|---|
 | [fullstack-k8s-aws](https://github.com/tevfikkoyun/fullstack-k8s-aws) | **Terraform + Docker + Kubernetes + AWS EKS** — EKS cluster, ECR, ALB Ingress Controller, EBS CSI Driver, IRSA, HPA — full-stack app accessible via real AWS ALB URL |
 
+
+------------------------------------------------------------------------
+
+# Career Objective
+
+My goal is to join a Cloud Infrastructure, Platform Engineering, or
+DevOps team where I can contribute to building scalable, automated, and
+reliable cloud platforms.
+
+I enjoy solving infrastructure challenges, automating repetitive
+processes, and building modern cloud-native environments using AWS,
+Terraform, Docker, Kubernetes, and CI/CD.
+
+Every project in this portfolio reflects that philosophy through
+hands-on implementation rather than isolated examples.
+
+
 ---
 
 ## Skills
@@ -194,10 +288,5 @@ The relation between these projects:
 **Networking** — Cisco IOS, VLAN design, WLC, 802.11, TCP/IP  
 **Systems** — Active Directory, Linux, Windows Server, Google Workspace  
 
+
 ---
-
-## Certifications
-
-- Cisco CCNA
-- AWS Solutions Architect – Associate (SAA-C03)
-- B.S. Computer Science — University of Central Florida
