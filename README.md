@@ -129,9 +129,9 @@ Kubernetes, and automation into complete production-style deployments.
 ║                 ▼                                                            ║
 ║  ╔═════════════════════════════╗                                             ║
 ║  ║   FINAL MASTER PROJECT      ║                                             ║
-║  ║                             ║                                             ║
-║  ║   fullstack-k8s-aws         ║  ← Terraform + Docker + Kubernetes + AWS    ║
-║  ║                             ║    EKS · ECR · ALB · EBS · IRSA · HPA       ║
+║  ║                             ║    Terraform + Docker + Kubernetes + AWS    ║
+║  ║   fullstack-k8s-aws         ║  ← EKS · ECR · ALB · EBS · IRSA · HPA       ║
+║  ║                             ║    Prometheus · Grafana · AlertManager      ║
 ║  ╚═════════════════════════════╝                                             ║
 ║                                                                              ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
@@ -140,27 +140,27 @@ The relation between these projects:
 
 ```
                     ┌─────────────────────────────────┐
-                    │     terraform-learning-labs      │
-                    │  S3 · EC2 · VPC · RDS · modules  │
+                    │     terraform-learning-labs     │
+                    │  S3 · EC2 · VPC · RDS · modules │
                     └────────────────┬────────────────┘
                                      │ Terraform fundamentals
-                    ┌────────────────▼────────────────┐
+                    ┌────────────────▼─────────────────┐
                     │      hybrid-infra-platform       │
-                    │  Multi-tier VPC · private subnet  │
-                    │  NAT Gateway · RDS MySQL · EC2    │
-                    │  Node.js API · CloudWatch · SNS   │
+                    │  Multi-tier VPC · private subnet │
+                    │  NAT Gateway · RDS MySQL · EC2   │
+                    │  Node.js API · CloudWatch · SNS  │
                     └──────┬─────────────────┬─────────┘
                            │                 │
             Terraform IaC  │                 │  AWS services
             (VPC, IAM,     │                 │  (EC2, RDS,
              modules)      │                 │   networking)
                            │                 │
-     ┌─────────────────────▼──┐   ┌──────────▼──────────────────┐
-     │      cloud-resume       │   │    docker-mastery-labs       │
-     │  S3 · CloudFront        │   │  12 labs: build · compose    │
-     │  Lambda · DynamoDB      │   │  multi-stage · CI/CD         │
-     │  API Gateway · Live ↗   │   │  networking · volumes        │
-     └─────────────────────────┘   └──────────┬──────────────────┘
+     ┌─────────────────────▼──┐  ┌──────────▼─────────────────┐
+     │      cloud-resume      │  │    docker-mastery-labs     │
+     │  S3 · CloudFront       │  │  12 labs: build · compose  │
+     │  Lambda · DynamoDB     │  │  multi-stage · CI/CD       │
+     │  API Gateway · Live ↗  │  │  networking · volumes     │
+     └────────────────────────┘  └──────────┬─────────────────┘
                                               │ Docker skills
                                    ┌──────────▼──────────────────┐
                                    │  dockerized-fullstack-       │
@@ -174,51 +174,54 @@ The relation between these projects:
                          Docker images +  │                  │  + K8s manifests
                          AWS networking   │                  │
                                    ┌──────▼──────┐  ┌────────▼───────────────┐
-                                   │  fullstack-  │  │  kubernetes-mastery-   │
-                                   │  aws-        │  │  labs                  │
-                                   │  deployment  │  │  12 labs: Pods ·       │
-                                   │              │  │  Deployments · Services│
-                                   │  Terraform   │  │  Ingress · ConfigMaps  │
-                                   │  EC2 · ECR   │  │  PVC · Probes · HPA    │
-                                   │  IAM Role    │  └────────┬───────────────┘
-                                   │  GitHub      │           │ K8s skills
-                                   │  Actions     │  ┌────────▼───────────────┐
-                                   └──────┬───────┘  │  kubernetes-task-      │
-                                          │           │  manager               │
-                                          │           │  Full-stack on local   │
-                                          │           │  K8s · Deployment ·    │
-                                          │           │  Service · Ingress ·   │
-                                          │           │  PVC · HPA · Probes    │
-                                          │           └────────┬───────────────┘
-                                          │                    │ Kustomize
-                                          │           ┌────────▼───────────────┐
-                                          │           │  kubernetes-multi-env   │
-                                          │           │  dev + production       │
-                                          │           │  namespaces · different │
-                                          │           │  replicas · limits ·    │
-                                          │           │  HPA per environment    │
-                                          │           └────────┬───────────────┘
-                                          │                    │
-                                          └──────────┬─────────┘
-                                                     │
+                                   │  fullstack- │  │  kubernetes-mastery-   │
+                                   │  aws-       │  │  labs                  │
+                                   │  deployment │  │  12 labs: Pods ·       │
+                                   │             │  │  Deployments · Services│
+                                   │  Terraform  │  │  Ingress · ConfigMaps  │
+                                   │  EC2 · ECR  │  │  PVC · Probes · HPA    │
+                                   │  IAM Role   │  └────────┬───────────────┘
+                                   │  GitHub     │           │ K8s skills
+                                   │  Actions    │  ┌────────▼───────────────┐
+                                   └──────┬──────┘  │  kubernetes-task-      │
+                                          │         │  manager               │
+                                          │         │  Full-stack on local   │
+                                          │         │  K8s · Deployment ·    │
+                                          │         │  Service · Ingress ·   │
+                                          │         │  PVC · HPA · Probes    │
+                                          │         └────────┬───────────────┘
+                                          │                  │ Kustomize
+                                          │         ┌────────▼───────────────┐
+                                          │         │  kubernetes-multi-env  │
+                                          │         │  dev + production      │
+                                          │         │  namespaces · different│
+                                          │         │  replicas · limits ·   │
+                                          │         │  HPA per environment   │
+                                          │         └────────┬───────────────┘
+                                          │                  │
+                                          └─────────┬────────┘
+                                                    │
                                           Everything combined
                                                      │
-                                   ┌─────────────────▼───────────────────┐
-                                   │         fullstack-k8s-aws           │
-                                   │                                     │
-                                   │  Terraform → EKS cluster · VPC ·    │
-                                   │  ECR · IAM roles · OIDC provider ·  │
-                                   │  EBS CSI Driver                     │
-                                   │                                     │
-                                   │  Kubernetes → Deployments · Services│
-                                   │  ALB Ingress · ConfigMaps · Secrets │
-                                   │  PVC (EBS) · Probes · HPA           │
-                                   │                                     │
-                                   │  CI/CD → GitHub Actions             │
-                                   │  Docker images → ECR → EKS          │
-                                   │                                     │
-                                   │  Live on AWS ALB ↗                  │
-                                   └──────────────────────────────────────┘
+                                   ┌─────────────────▼──────────────────────┐
+                                   │         fullstack-k8s-aws              │ 
+                                   │                                        │
+                                   │  Terraform → EKS cluster · VPC ·       │
+                                   │  ECR · IAM roles · OIDC provider ·     │
+                                   │  EBS CSI Driver                        │
+                                   │                                        │
+                                   │  Kubernetes → Deployments · Services   │
+                                   │  ALB Ingress · ConfigMaps · Secrets    │
+                                   │  PVC (EBS) · Probes · HPA              │
+                                   │                                        │
+                                   │  CI/CD → GitHub Actions                │
+                                   │  Docker images → ECR → EKS             |
+                                   |                                        |
+                                   | Observability → Prometheus + Grafana   |  
+                                   │ Custom alert rules · Alert firing demo |                                  
+                                   │                                        |  
+                                   |   Live on AWS ALB ↗                    |
+                                   └────────────────────────────────────────┘
 ```
 
 ---
@@ -258,7 +261,7 @@ The relation between these projects:
 
 | Project | What it covers |
 |---|---|
-| [fullstack-k8s-aws](https://github.com/tevfikkoyun/fullstack-k8s-aws) | **Terraform + Docker + Kubernetes + AWS EKS** — EKS cluster, ECR, ALB Ingress Controller, EBS CSI Driver, IRSA, HPA — full-stack app accessible via real AWS ALB URL |
+| [fullstack-k8s-aws](https://github.com/tevfikkoyun/fullstack-k8s-aws) | **Terraform + Docker + Kubernetes + AWS EKS** — EKS, ECR, ALB Ingress, EBS CSI Driver, IRSA, HPA — Prometheus + Grafana monitoring with custom alert rules — full-stack app on real AWS infrastructure |
 
 
 ------------------------------------------------------------------------
